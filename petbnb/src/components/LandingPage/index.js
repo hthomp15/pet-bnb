@@ -40,7 +40,8 @@ function LandingPage() {
         <div className="landing-pet">
           <h3> Real Testimony:</h3>
           <img src={require('../../assets/images/stock-photos/pets-0.jpeg')} alt="pets" />
-          <p>"My cats Kafka and Luna are some of the pickiest cats. I haven't been able to travel since I got them because I can't afford to drop them off at places and they are really uncomfortable outside of the house. I can ask my family, but they are busy too and I can't rely on them if I wanted to be gone for more than a day. With PetBnb I found someone that lives right down the street and I named my own price! They are happy to watch look after them and I realy him quite a bit now. In the past year I've been able to get around and when I return the cats seem like they hardly miss me. Its a win win for everyone."</p>
+          <p>"My cats Kafka and Luna are very picky. I haven't been able to travel since I got them, because they are really uncomfortable outside of the house. My family will help out when they can, but I can't always rely on them. With PetBnb I found someone that lives right down the street and they are really good with them! He is happy to watch look after the cats and they really really seem to like him. I haven't traveled this much since I was in college and when I return the cats seem like they hardly miss me."
+          </p>
         </div>
         
       </div>
