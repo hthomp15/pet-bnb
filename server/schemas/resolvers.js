@@ -12,7 +12,7 @@ const resolvers = {
 
     Mutation: {
         addUser: async (parent, args) => {
-            const user = await User.create(args)
+            const user = await User.create(args.input)
 
             return user
         },
@@ -20,7 +20,11 @@ const resolvers = {
             const user = await User.findOneAndDelete({ _id: args._id })
 
             return user
-        }
+        },
+        // updateUser: async (parent, args) => {
+        //     const user = await User.findOneAndUpdate({ _id: args._id }, args, { new: true })
+        //     return user
+        // }
     }
 }
 

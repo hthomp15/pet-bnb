@@ -14,9 +14,17 @@ const typeDefs = gql`
         user(username: String!): User
     }
 
+    # create common input fields for mutations
+    input UserInput {
+        username: String
+        email: String
+        password: String
+    }
+
     type Mutation {
-        addUser(username: String!, email: String!, password: String!): User
-        deleteUser(_id: String!): User
+        addUser(input: UserInput!): User
+        deleteUser(_id: ID!): User
+        # updateUser(_id: String!): User
     }
 
 `
