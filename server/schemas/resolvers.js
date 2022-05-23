@@ -21,10 +21,10 @@ const resolvers = {
 
             return user
         },
-        // updateUser: async (parent, args) => {
-        //     const user = await User.findOneAndUpdate({ _id: args._id }, args, { new: true })
-        //     return user
-        // }
+        updateUser: async (parent, args) => {
+            const user = await User.findByIdAndUpdate(args._id, args.input, { new: true })
+            return user
+        }
     }
 }
 
