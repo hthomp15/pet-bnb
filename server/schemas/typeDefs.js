@@ -12,7 +12,6 @@ const typeDefs = gql`
     type Post {
         _id: ID
         postText: String
-        email: String
         createdAt: String
         username: String
         comments: [Comment]
@@ -32,14 +31,6 @@ const typeDefs = gql`
         petNotes: String
     }
 
-    type Query {
-        users: [User]
-        user(username: String!): Pet
-
-        pets: [Pet]
-        pet(petName: String!): Pet
-    }
-
     # create common input fields for mutations
     input UserInput {
         username: String
@@ -53,6 +44,23 @@ const typeDefs = gql`
         petNotes: String
     }
 
+    input PostInput {
+        postText: String
+        createdAt: String
+        username: String
+    }
+
+    type Query {
+        users: [User]
+        user(_id: ID!): User
+
+        pets: [Pet]
+        pet(_id: ID!): Pet
+
+        posts: [Post]
+        post(_id: ID!): Post
+    }
+
     type Mutation {
         addUser(input: UserInput!): User
         deleteUser(_id: ID!): User
@@ -61,6 +69,10 @@ const typeDefs = gql`
         addPet(input: PetInput!): Pet
         deletePet(_id: ID!): Pet
         updatePet(_id: String!, input: PetInput!): Pet
+
+        addPost(input: PostInput!): Post
+        deletePost(_id: ID!): Post
+        updatePost(_id: String!, input: PostInput!): Post
     }
 
 `
