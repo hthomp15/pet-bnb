@@ -31,6 +31,11 @@ const typeDefs = gql`
         petNotes: String
     }
 
+    type Auth {
+        token: ID!
+        user: User
+    }
+
     # create common input fields for mutations
     input UserInput {
         username: String
@@ -70,8 +75,8 @@ const typeDefs = gql`
     }
 
     type Mutation {
-        addUser(input: UserInput!): User
-        login(email: String!, password: String!): User
+        addUser(input: UserInput!): Auth
+        login(email: String!, password: String!): Auth
         deleteUser(_id: ID!): User
         updateUser(_id: String!, input: UserInput!): User
 
