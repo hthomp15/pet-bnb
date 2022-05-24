@@ -20,3 +20,5 @@ const Slider = () => {
         </div>
     );
 }
+
+module.exports = Slider;
