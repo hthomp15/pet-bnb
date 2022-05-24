@@ -1,4 +1,5 @@
 const { User, Pet, Post } = require('../models')
+const { AuthenticationError } = require('apollo-server-express')
 
 const resolvers = {
     Query: {
@@ -25,6 +26,23 @@ const resolvers = {
     Mutation: {
         addUser: async (parent, args) => {
             const user = await User.create(args.input)
+
+            return user
+        },
+        login: async (parent, { email, password }) => {
+            const user = await User.findOne({ email })
+
+            // check if email exists
+            if (!user) {
+                throw new AuthenticationError('Incorrect email address')
+            }
+
+            // check if password matches
+            const correctPw = await user.isCorrectPassword(password)
+
+            if (!correctPw) {
+                throw new AuthenticationError('Incorrect password')
+            }
 
             return user
         },
