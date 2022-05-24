@@ -1,14 +1,12 @@
 import React from 'react';
 import './App.css';
-// import LandingPage from './components/LandingPage/index';
-import ProfilePage from './components/ProfilePage/index';
-
+import { Header, Navbar } from './components/Common'
 
 function App() {
   return (
-    <div className="App">
-     {/* <LandingPage></LandingPage> */}
-     <ProfilePage></ProfilePage>
+    <div className='App'>
+      <Header />
+
     </div>
   );
 }
