@@ -13,41 +13,208 @@
   font-family: "Gill Sans", Gill Sans MT, Calibri, sans-serif;
 }
 
-.App-header {
-  color: var(--primary-font);
-  padding: 1.5rem 1.25rem;
-  text-align: center;
+p {
+  font-size: 25px;
 }
 
-h1 {
-  font-weight: 700;
-  font-size: 2.5rem;
-  color: var(--secondary-font);
-  margin: 0;
-  padding: 0;
+/* Landing Page */
+
+.landing-main-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 5%;
 }
-p {
-  font-weight: 400;
-  font-size: 1.5rem;
+
+.landing-content {
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+  height: auto;
+
+  margin-left: 40px;
+}
+
+.landing-content h2 {
+  font-size: 40px;
   color: var(--secondary);
   margin: 0;
   padding: 0;
+  text-align: center;
+  text-decoration: underline;
 }
 
-span {
-  font-weight: 700;
-  font-size: 1.5rem;
-  color: var(--primary-font);
+.mission-statement p {
+  text-emphasis-color: var(--secondary-font);
+  background-color: var(--primary-font);
+  clip-path: ellipse();
+  margin-top: 15px;
+  width: 80%;
+  text-align: center;
+  padding: 10%;
+  font-size: 25px;
+}
+
+.landing-pet {
+  text-align: center;
+  border: 5px solid var(--primary-font);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.landing-pet h3 {
+  font-size: 30px;
+  text-decoration: underline;;
+}
+
+.landing-pet img {
+  float: right;
+  width: 300px;
+  height: auto;
+  clip-path: ellipse();
+  shape-outside: ellipse();
+  margin: 8px;
+}
+
+.landing-pet p {
+  font-size: 23px;
+}
+
+.reviews {
+  width: 30%;
+}
+
+.reviews-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+}
+
+.reviews h2 {
+  font-size: 40px;
+  color: var(--secondary);
   margin: 0;
   padding: 0;
+  text-align: center;
+  text-decoration: underline;
 }
 
-.App-header img {
-  height: 25%;
-  width: 25%;
-  border-radius: 25%;
-  border-color: var(--tertiary);
-  border-style: solid;
-  border-width: 5px;
-
+.reviews-container img {
+  align-items: center;
+  height: auto;
+  width: 275px;
+  border-radius: 10px;
+  margin-top: 15px;
+  border: 4px solid var(--secondary-font);
 }
+
+/* Profile Page */
+
+.profile-main-container {
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.profile-content {
+  padding: 10px;
+  width: 30%;
+  height: fit-content;
+  background-color: var(--tertiary);
+  border: solid 5px var(--primary-font);
+  border-radius: 5px;
+}
+
+.user {
+  background-color: var(--tertiary);
+  display: flex;
+  flex-direction: row;
+}
+
+.profile-content article {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-content article h3 {
+  margin: 0;
+  text-decoration: underline;
+}
+
+.profile-content article span {
+  margin-top: 5px;
+}
+
+.profile-content img {
+  width: 50px;
+  height: 50px;
+  clip-path: circle(50%);
+  float: left;
+  margin: 10px
+}
+
+.profile-content article, .user, .pet-info, .pet, h2, h3, h4, p, span {
+  background-color: var(--tertiary);
+  color: var(--primary)
+}
+
+.pets-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  width: 40%;
+  margin: 20px;
+}
+
+.all-pet-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 0;
+  background-color: var(--tertiary);
+}
+
+.pet-photo {
+  padding: 10px;
+}
+
+.pet-information {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+.pet-photo {
+  background-color: var(--tertiary);
+}
+
+.pet-photo img {
+  width: 100px;
+  height: auto;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.pets-container .pet {
+  border: solid 5px var(--primary-font);
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.pets-container  .pet .description {
+  background-color: var(--tertiary);
+  padding: 10px;
+}
+
+.pet-information, .pet-photo {
+  background-color: var(--tertiary);
+}
+
+.pet-information h3 {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
