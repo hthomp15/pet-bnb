@@ -6,9 +6,11 @@ const resolvers = {
     Query: {
         users: async () => {
             return User.find()
+                .populate('posts')
         },
         user: async (parent, { _id }) => {
             return User.findOne({ _id })
+                .populate('posts')
         },
         pets: async () => {
             return Pet.find()
@@ -73,10 +75,22 @@ const resolvers = {
             const pet = await Pet.findByIdAndUpdate(args._id, args.input, { new: true })
             return pet
         },
-        addPost: async (parent, args) => {
-            const post = await Post.create(args.input)
+        addPost: async (parent, args, context) => {
 
-            return post
+            console.log(context.user)
+
+            if (context.user) {
+                const post = await Post.create({ ...args.input, username: context.user.username })
+
+                await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    { $push: { posts: post._id } },
+                    { new: true }
+                )
+                return post
+            }
+
+            throw new AuthenticationError('You need to be logged in!')
         },
         deletePost: async (parent, args) => {
             const post = await Post.findOneAndDelete({ _id: args._id })
