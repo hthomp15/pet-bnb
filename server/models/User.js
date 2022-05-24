@@ -19,7 +19,12 @@ const userSchema = new Schema(
             type: String,
             required: true,
             minlength: 5
-        }
+        },
+        // phone number
+        // street number
+        // city
+        // state
+        // zip
     },
     {
         toJSON: {

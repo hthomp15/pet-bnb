@@ -1,4 +1,4 @@
-const { User } = require('../models')
+const { User, Pet } = require('../models')
 
 const resolvers = {
     Query: {
@@ -7,6 +7,12 @@ const resolvers = {
         },
         user: async (parent, { username }) => {
             return User.findOne({ username })
+        },
+        pets: async () => {
+            return Pet.find()
+        },
+        pet: async (parent, { petName }) => {
+            return Pet.findOne({ petName })
         }
     },
 
@@ -24,6 +30,20 @@ const resolvers = {
         updateUser: async (parent, args) => {
             const user = await User.findByIdAndUpdate(args._id, args.input, { new: true })
             return user
+        },
+        addPet: async (parent, args) => {
+            const pet = await Pet.create(args.input)
+
+            return pet
+        },
+        deletePet: async (parent, args) => {
+            const pet = await Pet.findOneAndDelete({ _id: args._id })
+
+            return pet
+        },
+        updatePet: async (parent, args) => {
+            const pet = await Pet.findByIdAndUpdate(args._id, args.input, { new: true })
+            return pet
         }
     }
 }
