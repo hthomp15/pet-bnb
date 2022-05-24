@@ -59,7 +59,7 @@ const addDateSuffix = (date) => {
     const minutes = (dateObj.getMinutes() < 10 ? '0' : '') + dateObj.getMinutes();
   
     // set `am` or `pm`
-    const periodOfDay = dateObj.getHours() >= 12 ? 'pm' : 'am';
+    const periodOfDay = dateObj.getHours() >= 12 ? 'PM' : 'AM';
   
     const formattedTimeStamp = `${formattedMonth} ${dayOfMonth}, ${year} at ${hour}:${minutes} ${periodOfDay}`;
   

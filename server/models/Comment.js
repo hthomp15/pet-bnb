@@ -1,6 +1,7 @@
 const { Schema } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
+// comments are subdocuments of Posts
 const commentSchema = new Schema(
   {
     commentText: {

@@ -16,7 +16,7 @@ const typeDefs = gql`
         username: String
         comments: [Comment]
     }
-
+    # comments are subdocuments of posts
     type Comment {
         _id: ID
         commentText: String
@@ -46,7 +46,12 @@ const typeDefs = gql`
 
     input PostInput {
         postText: String
-        createdAt: String
+        username: String
+        
+    }
+
+    input CommentInput {
+        commentText: String
         username: String
     }
 
@@ -59,6 +64,9 @@ const typeDefs = gql`
 
         posts: [Post]
         post(_id: ID!): Post
+
+        comments: [Comment]
+        comment(_id: ID!): Comment
     }
 
     type Mutation {
@@ -73,6 +81,7 @@ const typeDefs = gql`
         addPost(input: PostInput!): Post
         deletePost(_id: ID!): Post
         updatePost(_id: String!, input: PostInput!): Post
+        addComment(postId: ID!, commentText: String!, username: String!): Post
     }
 
 `
