@@ -10,20 +10,13 @@ const httpLink = createHttpLink({
   uri: 'http://localhost:4000/graphql',
 });
 
-
-
-// console.log(client)
-
-
+const client = new ApolloClient({
+  link: httpLink,
+  cache: new InMemoryCache(),
+});
 
 function App() {
 
-  const client = new ApolloClient({
-    link: httpLink,
-    cache: new InMemoryCache(),
-  });
-
-  // const { loading, data } = useQuery(QUERY_USERS);
   return (
     <ApolloProvider client={client}>
       {/* <div className='App'> */}

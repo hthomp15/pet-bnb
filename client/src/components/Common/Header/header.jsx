@@ -1,8 +1,14 @@
 import React from "react";
 import "./header.css";
-import { Navbar } from '../../Common'
+import { Navbar } from '..'
+
+import { useQuery } from '@apollo/client';
+import { QUERY_USERS } from '../../../utils/queries';
 
 function Header() {
+
+    const { loading, data } = useQuery(QUERY_USERS);
+    console.log(data)
     return (
         <section className="header">
            <section className="header-top">
