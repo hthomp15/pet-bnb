@@ -5,7 +5,7 @@ import { Navbar } from '../../Common'
 function Header() {
     return (
         <section className="header">
-           <section classname="header-top">
+           <section className="header-top">
                <section className="header-top_logo">
                    <a href="/" className="header-logo">LOGO</a>
                </section>
