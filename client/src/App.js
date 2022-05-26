@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
-// import LandingPage from './components/LandingPage/index'
-import Footer from './components/Footer/index'
-import Dashboard from './components/Dashboard/index'
+import { Header, Navbar } from './components/Common';
+import Login from './components/Login';
+import Register from './components/Register';
 
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import Navbar from './components/Nav';
@@ -22,9 +22,9 @@ function App() {
     <ApolloProvider client={client}>
       <Navbar></Navbar>
       {/* <div className='App'> */}
-      {/* <LandingPage></LandingPage> */}
-      <Dashboard></Dashboard>
-      <Footer></Footer>
+        <Header />
+        {/* <Login /> */}
+        <Register />
       {/* </div> */}
     </ApolloProvider>
   );

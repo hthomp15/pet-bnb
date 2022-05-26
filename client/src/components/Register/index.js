@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import { useMutation } from '@apollo/client';
+import { ADD_USER } from '../../utils/mutations';
+// import Auth from '../../utils/auth';
 
 const Register = () => {
     
-    const [formState, setFormState] = useState({ name: '', email: '', password: '', phone: ''});
+    const [formState, setFormState] = useState({ username: '', email: '', password: '', phone: ''});
     const [addUser, { error }] = useMutation(ADD_USER);
 
     // update state based on form input changes
@@ -24,8 +27,10 @@ const Register = () => {
         const { data } = await addUser({
             variables: { ...formState }
         });
+
+        console.log("data", data)
         
-        Auth.login(data.addUser.token);
+        // Auth.login(data.addUser.token);
         } catch (e) {
         console.error(e);
         }
@@ -41,10 +46,10 @@ const Register = () => {
                     <input
                         className='form-input'
                         placeholder='Your name'
-                        name='name'
-                        type='name'
-                        id='name'
-                        value={formState.name}
+                        name='username'
+                        type='username'
+                        id='username'
+                        value={formState.username}
                         onChange={handleChange}
                     />
                     <input
@@ -86,4 +91,4 @@ const Register = () => {
     );
 }
 
-module.exports = Register;
+export default Register;
