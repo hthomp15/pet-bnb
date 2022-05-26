@@ -88,7 +88,7 @@ const typeDefs = gql`
         addPost(input: PostInput!): Post
         deletePost(_id: ID!): Post
         updatePost(_id: String!, input: PostInput!): Post
-        addComment(postId: ID!, commentText: String!, username: String!): Post
+        addComment(postId: ID!, commentText: String!): Post
     }
 
 `
