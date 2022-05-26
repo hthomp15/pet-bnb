@@ -101,14 +101,19 @@ const resolvers = {
             const post = await Post.findByIdAndUpdate(args._id, args.input, { new: true })
             return post
         },
-        addComment: async (parent, args) => {
-            const updatedPost = await Post.findOneAndUpdate(
-                { _id: args.postId },
-                { $push: { comments: { commentText: args.commentText, username: args.username } } },
-                { new: true }
-            )
+        addComment: async (parent, args, context) => {
+            console.log(context.user)
 
-            return updatedPost
+            if (context.user) {
+                const addedComment = await Post.findOneAndUpdate(
+                    { _id: args.postId },
+                    { $push: { comments: { commentText: args.commentText, username: context.user._id } } },
+                    { new: true }
+                )
+
+                return addedComment
+            }
+
         }
     }
 }
