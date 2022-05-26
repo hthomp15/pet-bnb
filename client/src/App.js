@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
-import { Header, Navbar } from './components/Common'
+// import LandingPage from './components/LandingPage/index'
+import Footer from './components/Footer/index'
+import Dashboard from './components/Dashboard/index'
 
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
-import { useQuery } from '@apollo/client';
-import { QUERY_USERS } from './utils/queries';
+import Navbar from './components/Nav';
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:4000/graphql',
@@ -19,9 +20,11 @@ function App() {
 
   return (
     <ApolloProvider client={client}>
+      <Navbar></Navbar>
       {/* <div className='App'> */}
-        <Header />
-
+      {/* <LandingPage></LandingPage> */}
+      <Dashboard></Dashboard>
+      <Footer></Footer>
       {/* </div> */}
     </ApolloProvider>
   );

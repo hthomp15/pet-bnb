@@ -113,14 +113,14 @@ p {
 /* Profile Page */
 
 .profile-main-container {
-  margin: 10px;
+  margin-right: 10px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  width: 30%;
 }
 
 .profile-content {
   padding: 10px;
-  width: 30%;
   height: fit-content;
   background-color: var(--tertiary);
   border: solid 5px var(--primary-font);
@@ -160,42 +160,117 @@ p {
   color: var(--primary)
 }
 
-.pets-container {
+.post-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: auto;
-  width: 40%;
-  margin: 20px;
+  width: 100%;
+}
+
+.post-user-info {
+  padding-left: 10px;
+  background-color: var(--tertiary);
+}
+
+.all-posts {
+  width: 80%;
+}
+
+
+.post-container .post {
+  border: solid 5px var(--primary-font);
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.post-container .title {
+  font-size: 30px;
+  padding: 5px;
+  border-radius: 5px;
+  color: var(--primary-font);
+  text-decoration: underline var(--primary-font);
+}
+
+.post .description {
+  background-color: var(--tertiary);
+  padding: 10px;
+  padding-top: 0;
+}
+
+.post-user-info .username {
+  margin-bottom: 5px;
+}
+
+.post .description {
+  display: flex;
+  flex-direction: column;
+}
+
+.description .post-text {
+  text-indent: 2rem;
+  color: var(--primary-font)
+}
+
+.description .time {
+  font-size: smaller;
+  margin-top: 5px;
+  text-align: center;
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: row;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.add-pets {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.add-pet-btn {
+  width: 30%;
+  height: auto;
+  color: var(--tertiary);
+  font-size: larger;
+  border-radius: 5px;
+}
+
+.add-post-btn {
+  width: 30%;
+  height: auto;
+  color: var(--tertiary);
+  font-size: larger;
+  border-radius: 5px;
+}
+
+.pets-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
 }
 
 .all-pet-info {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  padding: 0;
-  background-color: var(--tertiary);
-}
-
-.pet-photo {
   padding: 10px;
+  background-color: var(--tertiary);
 }
 
 .pet-information {
   display: flex;
   flex-direction: column;
   width: 70%;
-}
-.pet-photo {
-  background-color: var(--tertiary);
-}
-
-.pet-photo img {
-  width: 100px;
-  height: auto;
-  border-radius: 5px;
-  object-fit: cover;
 }
 
 .pets-container .pet {
