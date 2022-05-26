@@ -25,6 +25,12 @@ const userSchema = new Schema(
                 type: Schema.Types.ObjectId,
                 ref: 'Post'
             }
+        ],
+        pets: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Pet'
+            }
         ]
         // phone number
         // street number

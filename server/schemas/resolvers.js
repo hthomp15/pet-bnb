@@ -7,10 +7,12 @@ const resolvers = {
         users: async () => {
             return User.find()
                 .populate('posts')
+                .populate('pets')
         },
         user: async (parent, { _id }) => {
             return User.findOne({ _id })
                 .populate('posts')
+                .populate('pets')
         },
         pets: async () => {
             return Pet.find()
@@ -61,10 +63,22 @@ const resolvers = {
             const user = await User.findByIdAndUpdate(args._id, args.input, { new: true })
             return user
         },
-        addPet: async (parent, args) => {
-            const pet = await Pet.create(args.input)
+        addPet: async (parent, args, context) => {
 
-            return pet
+            console.log(context.user)
+
+            if (context.user) {
+                console.log('HELLOOOOO')
+                const pet = await Pet.create({ ...args.input, username: context.user.username })
+                await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    { $push: { pets: pet._id } },
+                    { new: true }
+                )
+                return pet
+            }
+
+            throw new AuthenticationError('You need to be logged in!')
         },
         deletePet: async (parent, args) => {
             const pet = await Pet.findOneAndDelete({ _id: args._id })

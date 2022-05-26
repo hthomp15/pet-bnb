@@ -13,6 +13,10 @@ const petSchema = new Schema(
         },
         petNotes: {
             type: String,
+        },
+        username: {
+            type: String,
+            required: true
         }
     },
     {

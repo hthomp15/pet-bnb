@@ -8,6 +8,7 @@ const typeDefs = gql`
         email: String
         password: String
         posts: [Post]
+        pets: [Pet]
     }
 
     type Post {
@@ -30,6 +31,7 @@ const typeDefs = gql`
         petName: String
         petType: String
         petNotes: String
+        username: String
     }
 
     type Auth {
@@ -48,12 +50,12 @@ const typeDefs = gql`
         petName: String
         petType: String
         petNotes: String
+        username: String
     }
 
     input PostInput {
         postText: String
-        username: String
-        
+        username: String   
     }
 
     input CommentInput {
