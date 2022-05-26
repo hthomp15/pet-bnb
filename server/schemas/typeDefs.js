@@ -7,6 +7,7 @@ const typeDefs = gql`
         username: String
         email: String
         password: String
+        phone: String
         posts: [Post]
         pets: [Pet]
     }
@@ -44,6 +45,7 @@ const typeDefs = gql`
         username: String
         email: String
         password: String
+        phone: String
     }
 
     input PetInput {

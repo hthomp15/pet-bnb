@@ -19,6 +19,11 @@ const userSchema = new Schema(
             type: String,
             required: true,
             minlength: 5
+        },        
+        phone: {
+            type: String,
+            required: true,
+            trim: true
         },
         posts: [
             {
