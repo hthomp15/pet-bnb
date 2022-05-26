@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
-import { Header, Navbar } from './components/Common'
+import { Header, Navbar } from './components/Common';
+import Login from './components/Login';
+import Register from './components/Register';
 
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { useQuery } from '@apollo/client';
@@ -21,7 +23,8 @@ function App() {
     <ApolloProvider client={client}>
       {/* <div className='App'> */}
         <Header />
-
+        {/* <Login /> */}
+        <Register />
       {/* </div> */}
     </ApolloProvider>
   );
