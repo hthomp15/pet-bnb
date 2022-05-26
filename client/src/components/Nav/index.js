@@ -1,9 +1,12 @@
-import React from "react";
-import './navbar.css'
+import React from "react"
 
-function Navbar() {
+function Navbar () {
+
+
     return(
-        <section className="navbar">
+        <header className="navbar">
+            <h1><a>PetBnb</a></h1>
+
             <ul>
                 <li>
                     <a href="/home" className="navbar-item">Home</a>
@@ -22,8 +25,10 @@ function Navbar() {
                 </li>
             </ul>
             
-        </section>
+        </header>
     )
 }
+    
 
-export default Navbar;
+
+export default Navbar
