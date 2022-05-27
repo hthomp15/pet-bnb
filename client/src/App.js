@@ -16,7 +16,7 @@ import Signup from './pages/SignUp';
 // import Navbar from './components/Nav';
 
 const httpLink = createHttpLink({
-  uri: 'http://localhost:4000/graphql',
+  uri: '/graphql',
 });
 
 const client = new ApolloClient({
