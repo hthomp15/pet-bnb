@@ -21,19 +21,20 @@ module.exports = {
                 .split(' ')
                 .pop()
                 .trim()
-            console.log('RAW TOKEN EXTRACTED FROM REQ HEADER AUTHORIZATION \n', token)
+            // console.log('RAW TOKEN EXTRACTED FROM REQ HEADER AUTHORIZATION \n', token)
         }
 
         // if no token, return request object as is
         if (!token) {
             // console.log('NO TOKEN!')
+            console.log(req)
             return req
         }
 
         try {
             // decode and attach user data to request object
             const { data } = jwt.verify(token, secret, { maxAge: expiration })
-            console.log('TOKEN DECODED AND ADDED TO REQ.USER \n', data)
+            // console.log('TOKEN DECODED AND ADDED TO REQ.USER \n', data)
             req.user = data
         } catch {
             console.log('Invalid token')
