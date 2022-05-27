@@ -3,27 +3,11 @@ import React from 'react';
 
 function LandingPage() {
 
-  // const reviews = [
-  //   {
-  //     link: '../../assets/images/media-posts/media-00.png',
-  //   },
-  //   {
-  //     link: '../../assets/images/media-posts/media-01.png',
-  //   },
-  //   {
-  //     link: '../../assets/images/media-posts/media-02.png',
-  //   },
-
-  // ]
-
   return (
     <section className="landing-main-container">
       <div className="reviews">
         <h2> Reviews:</h2>
         <div className="reviews-container">
-            {/* <div className="review">
-              <img src={require('../../assets/images/media-posts/media-00.png')} alt="review" />
-            </div> */}
             <div className="review">
               <img src={require('../../assets/images/media-posts/media-02.jpeg')} alt="review" />
             </div>

@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
-// import { Header, Navbar } from './components/Common';
 import Login from './components/Login';
 import Register from './components/Register';
+import Navbar from './components/Navbar';
 
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 // import Navbar from './components/Nav';
