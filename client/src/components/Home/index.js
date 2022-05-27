@@ -4,7 +4,7 @@ import AddPets from "./AddPets/index"
 import { useQuery } from "@apollo/client";
 import { QUERY_POSTS } from '../../utils/queries'
 
-function Dashboard () {
+function Home () {
     const { loading, data } = useQuery( QUERY_POSTS)
     const posts = data?.posts || [];
     console.log(posts)
@@ -41,4 +41,4 @@ function Dashboard () {
     )
 }
 
-export default Dashboard;
+export default Home;

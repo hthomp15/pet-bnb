@@ -1,45 +1,46 @@
-const jwt = require('jsonwebtoken')
+import decode from 'jwt-decode';
 
-require('dotenv').config()
+class AuthService {
+  getProfile() {
+    return decode(this.getToken());
+  }
 
-const secret = process.env.SECRET
-const expiration = '2h'
+  loggedIn() {
+    // Checks if there is a saved token and it's still valid
+    const token = this.getToken();
+    return !!token && !this.isTokenExpired(token); // handwaiving here
+  }
 
-module.exports = {
-    signToken: function ({ username, email, _id }) {
-        const payload = { username, email, _id }
-
-        return jwt.sign({ data: payload }, secret, { expiresIn: expiration })
-    },
-    authMiddleware: function ({ req }) {
-        // allows a token to be sent via req.body, req.query, or headers
-        let token = req.body.token || req.query.token || req.headers.authorization
-
-        // separate "Bearer" from "<tokenvalue>"
-        if (req.headers.authorization) {
-            token = token
-                .split(' ')
-                .pop()
-                .trim()
-            console.log('RAW TOKEN EXTRACTED FROM REQ HEADER AUTHORIZATION \n', token)
-        }
-
-        // if no token, return request object as is
-        if (!token) {
-            // console.log('NO TOKEN!')
-            return req
-        }
-
-        try {
-            // decode and attach user data to request object
-            const { data } = jwt.verify(token, secret, { maxAge: expiration })
-            console.log('TOKEN DECODED AND ADDED TO REQ.USER \n', data)
-            req.user = data
-        } catch {
-            console.log('Invalid token')
-        }
-
-        // return updated request object
-        return req
+  isTokenExpired(token) {
+    try {
+      const decoded = decode(token);
+      if (decoded.exp < Date.now() / 1000) {
+        return true;
+      } else return false;
+    } catch (err) {
+      return false;
     }
+  }
+
+  getToken() {
+    // Retrieves the user token from localStorage
+    return localStorage.getItem('id_token');
+  }
+
+  login(idToken) {
+    // Saves user token to localStorage
+    localStorage.setItem('id_token', idToken);
+
+    window.location.assign('/');
+  }
+
+  logout() {
+    // Clear user token and profile data from localStorage
+    // axios.defaults.headers.common["Authorization"] = null;
+    localStorage.removeItem('id_token');
+    // this will reload the page and reset the state of the application
+    window.location.assign('/');
+  }
 }
+
+export default new AuthService();

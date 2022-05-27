@@ -2,8 +2,8 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="">
-      <span className="">&copy;2022 by PetBnB</span>
+    <footer className="footer">
+      <span className="footer-content">Made with ❤️ by PetBnB &copy;2022</span>
     </footer>
   );
 };

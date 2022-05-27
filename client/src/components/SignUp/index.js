@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../../utils/mutations';
-// import Auth from '../../utils/auth';
+import Auth from '../../utils/auth';
 
-const Register = () => {
-
+const SignUp = () => {
+    console.log(Auth)
     const [formState, setFormState] = useState({ username: '', email: '', password: '', phone: '' });
     const [addUser, { error }] = useMutation(ADD_USER);
 
@@ -28,20 +28,20 @@ const Register = () => {
             const { data } = await addUser({
                 variables: { ...formState }
             })
-
+            Auth.login(data.addUser.token);
             console.log('HELLLLLLO', data)
         } catch (e) {
             console.error(e);
         }
 
-        // Auth.login(data.addUser.token);
+     
     };
 
     return (
         <main className='flex-row justify-center'>
             <div className='col-12 col-md-6'>
                 <div className='card'>
-                    <h4 className='card-header'>Register</h4>
+                    <h4 className='card-header'>Sign Up:</h4>
                     <div className='card-body'>
                         <form onSubmit={handleFormSubmit}>
                             <input
@@ -92,4 +92,4 @@ const Register = () => {
     );
 }
 
-export default Register;
+export default SignUp;

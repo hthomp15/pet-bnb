@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-function LandingPage() {
+function About() {
 
   return (
     <section className="landing-main-container">
@@ -33,4 +33,4 @@ function LandingPage() {
   );
 }
 
-export default LandingPage;
+export default About;

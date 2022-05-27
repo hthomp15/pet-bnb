@@ -1,10 +1,18 @@
 import React from 'react';
-import './App.css';
-import Login from './components/Login';
-import Register from './components/Register';
-import Navbar from './components/Navbar';
 
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
+
+import Header from './components/Header/index.js';
+import Footer from './components/Footer';
+
+import Home from './pages/Home';
+import About from './pages/About';
+import Login from './pages/Login';
+import NoMatch from './pages/NoMatch';
+import SinglePost from './pages/SinglePost';
+import Profile from './pages/Profile';
+import Signup from './pages/SignUp';
+
 // import Navbar from './components/Nav';
 
 const httpLink = createHttpLink({
@@ -20,12 +28,11 @@ function App() {
 
   return (
     <ApolloProvider client={client}>
-      {/* <Navbar></Navbar> */}
-      {/* <div className='App'> */}
-        {/* <Header /> */}
-        <Login />
-        <Register />
-      {/* </div> */}
+      <Header />
+      <div className="container">
+        <Home />
+      </div>
+      <Footer></Footer>
     </ApolloProvider>
   );
 }
