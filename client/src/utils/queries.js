@@ -28,13 +28,46 @@ query Pets {
 }
 `;
 
-export const QUERY_USERS = gql`
-query Query {
-  users {
+export const QUERY_USER = gql`
+query Query($id: ID!) {
+  user(_id: $id) {
     _id
     username
     email
     password
+    phone
+    posts {
+      _id
+      postText
+      commentCount
+      createdAt
+      username
+      comments {
+        _id
+        commentText
+        createdAt
+        username
+      }
+    }
+    pets {
+      _id
+      petName
+      petType
+      petNotes
+      username
+    }
+  }
+}
+`;
+
+export const QUERY_ME = gql`
+query Query {
+  me {
+    _id
+    username
+    email
+    password
+    phone
   }
 }
 `;
@@ -44,6 +77,7 @@ query Query {
   posts {
     _id
     postText
+    commentCount
     createdAt
     username
     comments {
@@ -53,4 +87,39 @@ query Query {
       username
     }
   }
-}`
+}
+`;
+
+export const QUERY_POST = gql`
+query Query($id: ID!) {
+  post(_id: $id) {
+    _id
+    postText
+    commentCount
+    createdAt
+    username
+    comments {
+      _id
+      commentText
+      createdAt
+      username
+    }
+  }
+}
+`;
+
+export const QUERY_USER_PETS = gql`
+query Query($id: ID!) {
+  user(_id: $id) {
+    _id
+    username
+    pets {
+      petName
+      _id
+      petType
+      petNotes
+      username
+    }
+  }
+}
+`;

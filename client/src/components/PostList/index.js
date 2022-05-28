@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"
 
 
 function Posts ( { posts, title } ) { 
@@ -12,11 +13,18 @@ function Posts ( { posts, title } ) {
                 {posts.map (post => (
                 <div key={post._id} className="post">
                     <div className="post-user-info">
-                        <h3 className="username">{post.username}</h3>  
+                        <Link to={`/profile/${post.username}`}>
+                            <h3 className="username">{post.username}</h3>
+                        </Link>{' '}
                     </div>
                     <div className="description">
-                        <span className="post-text">{post.postText}</span>
-                        <span className="time">{post.createdAt}</span>
+                        <Link to={`/post/${post._id}`}>
+                            <p className="post-text">{post.postText}</p>
+                            <p className="comments">Comments: {post.commentCount} Click to {''} 
+                            {post.commentCount ? 'see' : 'start '} the discussion</p>
+                        </Link>
+                            <span className="time">{post.createdAt}</span>
+                     
                     </div>
                 </div>
             ))} 
