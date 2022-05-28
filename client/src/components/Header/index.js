@@ -12,6 +12,7 @@ function Header() {
         </div>
         <div className="header-content-right">
             <Link to="/about"> About Us</Link>
+            <Link to="/profile"> Profile</Link>
             <Link to="/login"> Login </Link>
             <Link to="/signup"> Sign Up </Link>
             <Link to="/post/:id"> New Post </Link>

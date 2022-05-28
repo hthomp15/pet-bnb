@@ -23,3 +23,27 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const ADD_PET = gql`
+
+mutation Mutation($input: PostInput!) {
+  addPost(input: $input) {
+    _id
+    dateNeeded
+    postText
+    commentCount
+    createdAt
+    username
+    comments {
+      _id
+      commentText
+      createdAt
+      username
+    }
+    pets {
+      _id
+      petName
+    }
+  }
+}
+`;
