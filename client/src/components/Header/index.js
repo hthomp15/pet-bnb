@@ -15,7 +15,7 @@ function Header() {
             <Link to="/profile"> Profile</Link>
             <Link to="/login"> Login </Link>
             <Link to="/signup"> Sign Up </Link>
-            <Link to="/post/:id"> New Post </Link>
+            <Link to="/newPosts"> New Post </Link>
         </div>
       </div>
     </header>
