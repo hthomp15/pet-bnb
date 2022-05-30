@@ -8,47 +8,43 @@ import { Link } from "react-router-dom";
 import PetList from "../components/PetList";
 
 import Auth from "../utils/auth";
+import UserPosts from "../components/UserPosts";
 
 
-function Profile() {
-    const { id: userId } = useParams();
-    const ID = Auth.getProfile().data._id;
+function Profile(props) {
+    const { username: userParam } = useParams();
     const { loading, data } = useQuery( QUERY_USER, {
-        variables: { id: ID }
-        }); 
-    const user = data?.me || {};
-    console.log("user", user);
+        variables: { username: userParam },
+    });
+    console.log(data, "data.pets");
     if(loading){
         return <p>Loading...</p>
     }
-
-    // Navigate to Profile if you are logged in 
-    // if (Auth.loggedIn() && Auth.getProfile().data._id === ID) {
-    //     return <Navigate to="/profile:id" />;
-    //   }
+    const username = data.user.username
+    const email = data.user.email
+    const userData = data.user
     
-    //   if (loading) {
-    //     return <div>Loading...</div>;
-    //   }
-    
-    //   if (!user?._id) {
-    //     return (
-    //       <h4>
-    //         You need to be logged in to see this. Use the navigation links above to
-    //         sign up or log in!
-    //       </h4>
-    //     );
-    //   }
-
     return(
-        <div className="profile-card">
-            <div className="profile-card-header">
-                <h3 className="profile-card-header-title">Profile</h3>
+        <main className="profile">
+            <div className="profile-main-container"> 
+                <div className="profile-content">
+                    <div className="user">
+                        <h2 className="username">{username}</h2>
+                    </div>
+                    <article>
+                        <h3>About Me:</h3>
+                        <span className="email">Email: {email}</span>
+                    </article>
+                </div>
+                <div className="add-pets"> 
+                    <button className="add-pet-btn" type="submit"> Add Pets</button>
+                </div>
+                <PetList pets={data.user}></PetList>
             </div>
-            <div className="profile-card-body">
-                <PetList />
+            <div>
+                <UserPosts posts={data.user} />
             </div>
-        </div>
+        </main>
     );
 }
 

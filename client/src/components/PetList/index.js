@@ -1,19 +1,12 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
-import { QUERY_USER_PETS } from "../../utils/queries";
+
 import { Link } from "react-router-dom";
 
-function PetList() {
-    const { id: userId } = useParams();
-    const { loading, data } = useQuery(QUERY_USER_PETS , {
-        variables: { id: userId },
-        });
-    console.log("pets", userId, data);
-    const pets = data?.pets || [];
-    if(loading){
-        return <p>Loading...</p>
-    }
+function PetList(props) {
+    const pets = props.pets.pets
+    console.log("hello world", pets);
 
     return (
         <div className="pet-list">

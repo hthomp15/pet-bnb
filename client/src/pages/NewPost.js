@@ -3,44 +3,67 @@ import { ADD_POSTS} from '../utils/mutations';
 import { useMutation } from '@apollo/client';
 
 
-const newPost = () => {
-    const [ newPostForm, setNewPostForm ] = useState({
-        username: '',
-        postText: ''
-    }) 
-    const [addPost, {error}] = useMutation(ADD_POSTS)
-    function onChangeData(event) {
-        const {name, value} = event.target
-        setNewPostForm({... newPostForm, [name]: value})
-    }
+const NewPost = () => {
+    const [formState, setFormState] = useState({ username: '', postText: '' });
+const [login, { error }] = useMutation(ADD_POSTS);
+  
+    // update state based on form input changes
+    const handleChange = (event) => {
+      const { name, value } = event.target;
+  
+      setFormState({
+        ...formState,
+        [name]: value,
+      });
+    };
+  
+    // submit form
+    const handleFormSubmit = async (event) => {
+      event.preventDefault();
+        console.log("haha", event.target.username.value, event.target.postText.value, event.target.dateNeeded.value)
+      try {
+        const { data } = await ADD_POSTS({
+          variables: {input:{ ...formState }}
+        });
 
-    async function handleSubmitButton(event) {
-        event.preventDefault()
-        try {
-            const {data} = await addPost({
-                variables:{input:{... newPostForm}}
-            })
-            console.log(data)
-        } catch (error) {
-            console.log(error)
-        }
-    }
+        console.log(data);
+    
+      } catch (e) {
+        console.error("hello", e);
+      }
+  
+      // clear form values
+      setFormState({
+        username: '',
+        dateNeeded: '',
+        postText: '',
+      });
+    };
 
   return (
     <form >
         <div>
             <p>Username</p>
-            <input type="text" name="username" value={newPostForm.username} onChange={onChangeData}/>
+            <input type="text" name="username" value={formState.username} onChange={handleChange}/>
+            <label></label>
+        </div>
+        <div>
+            <p>Dates Needed:</p>
+            <input type="text" name="dateNeeded" value={formState.dateNeeded} onChange={handleChange}/>
             <label></label>
         </div>
         <div>
             <p>Post Text</p>
-            <input type="text" name="postText" value={newPostForm.postText} onChange={onChangeData}/>
+
+            <input type="text" name="postText" value={formState.postText} onChange={handleChange}/>
             <label></label>
         </div>
-        <button>Submit</button>
+        <button onSubmit={handleFormSubmit}>Submit</button>
+
     </form>
   );
 };
 
-export default newPost;
+export default NewPost;
+
+

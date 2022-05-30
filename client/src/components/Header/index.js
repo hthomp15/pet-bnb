@@ -1,7 +1,19 @@
-import React from 'react';
+import { useState, useEffect }from 'react';
+import Auth from '../../utils/auth';
 import { Link } from 'react-router-dom';
 
 function Header() {
+  const logout = event => {
+    event.preventDefault();
+    Auth.logout();
+  };
+
+  const profile = Auth.getProfile().data.username
+  const [user, setUser] = useState("");
+  useEffect(() => {
+    setUser(profile);
+  }, [profile]);
+
   return (
     <header className="header">
       <div className="header-content">
@@ -10,13 +22,24 @@ function Header() {
                 <h1>PetBnB</h1>
             </Link>
         </div>
-        <div className="header-content-right">
+        <nav className="header-content-right">
             <Link to="/about"> About Us</Link>
-            <Link to="/profile"> Profile</Link>
-            <Link to="/login"> Login </Link>
-            <Link to="/signup"> Sign Up </Link>
-            <Link to="/newPosts"> New Post </Link>
-        </div>
+
+            {Auth.loggedIn() ? (
+            <>
+              <Link to={`/profile/${user}`}>Me</Link>
+              {/* <a href="/" onClick={logout}>
+                Logout
+              </a> */}
+            </>
+          ) : (
+            <>
+              <Link to="/login">Login</Link>
+              <Link to="/signup">Signup</Link>
+            </>
+          )}
+            <Link to="/newpost"> New Post </Link>
+        </nav>
       </div>
     </header>
   );

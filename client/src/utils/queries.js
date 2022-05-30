@@ -10,6 +10,8 @@ query Users {
     posts {
       _id
       postText
+      dateNeeded
+      commentCount
       createdAt
       username
     }
@@ -29,8 +31,8 @@ query Pets {
 `;
 
 export const QUERY_USER = gql`
-query Query($id: ID!) {
-  user(_id: $id) {
+query Query($username: String!) {
+  user(username: $username) {
     _id
     username
     email
@@ -40,6 +42,7 @@ query Query($id: ID!) {
       _id
       postText
       commentCount
+      dateNeeded
       createdAt
       username
       comments {
@@ -78,6 +81,7 @@ query Query {
     _id
     postText
     commentCount
+    dateNeeded
     createdAt
     username
     comments {
@@ -96,6 +100,7 @@ query Query($id: ID!) {
     _id
     postText
     commentCount
+    dateNeeded
     createdAt
     username
     comments {
@@ -110,7 +115,7 @@ query Query($id: ID!) {
 
 export const QUERY_USER_PETS = gql`
 query Query($id: ID!) {
-  user(_id: $id) {
+  user(username: $username) {
     _id
     username
     pets {

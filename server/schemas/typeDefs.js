@@ -16,6 +16,7 @@ const typeDefs = gql`
         _id: ID
         postText: String
         commentCount: Int
+        dateNeeded: String
         createdAt: String
         username: String
         comments: [Comment]
@@ -57,6 +58,7 @@ const typeDefs = gql`
     input PostInput {
         postText: String
         username: String  
+        dateNeeded: String
     }
 
     input CommentInput {
@@ -68,7 +70,7 @@ const typeDefs = gql`
         me: User
 
         users: [User]
-        user(_id: ID!): User
+        user(username: String!): User
 
         pets: [Pet]
         pet(_id: ID!): Pet
