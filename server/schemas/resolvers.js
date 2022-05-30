@@ -9,8 +9,8 @@ const resolvers = {
                 .populate('posts')
                 .populate('pets')
         },
-        user: async (parent, { _id }) => {
-            return User.findOne({ _id })
+        user: async (parent, { username }) => {
+            return User.findOne({ username})
                 .populate('posts')
                 .populate('pets')
         },

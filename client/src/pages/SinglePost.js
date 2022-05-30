@@ -17,6 +17,7 @@ function SinglePost() {
     if(loading){
         return <p>Loading...</p>
     }
+    console.log("post", post);
     
     return (
         <div className="single-post">
@@ -27,6 +28,7 @@ function SinglePost() {
                 <span className="time"> Posted at {post.createdAt}</span>
             </div>
             <div className="post-body">
+                <h3 className="date">{post.dateNeeded}</h3>
                 <p className="post-text">{post.postText}</p>
             </div>
             <div className="post-comments">
