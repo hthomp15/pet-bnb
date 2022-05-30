@@ -6,6 +6,7 @@ function UserPosts ( props ) {
     //     return <h3>No posts yet</h3>;
     // }
     const posts = props.posts.posts
+    console.log("hello world", posts);
 
     console.log("Yepppppp", props, "these posts baby", posts)
     return(
