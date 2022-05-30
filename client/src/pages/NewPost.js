@@ -54,13 +54,16 @@ const [login, { error }] = useMutation(ADD_POSTS);
         </div>
         <div>
             <p>Post Text</p>
+
             <input type="text" name="postText" value={formState.postText} onChange={handleChange}/>
             <label></label>
         </div>
         <button onSubmit={handleFormSubmit}>Submit</button>
+
     </form>
   );
 };
 
 export default NewPost;
+
 

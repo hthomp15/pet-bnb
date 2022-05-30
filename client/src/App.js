@@ -13,7 +13,9 @@ import NoMatch from './pages/NoMatch';
 import SinglePost from './pages/SinglePost';
 import Profile from './pages/Profile';
 import Signup from './pages/SignUp';
+
 import NewPost from './pages/NewPost.js';
+
 
 // import Navbar from './components/Nav';
 
@@ -41,6 +43,7 @@ function App() {
               <Route path="/profile/:username" element={<Profile />} />
               <Route path="/post/:id" element={<SinglePost />} />
               <Route path="/newpost" element={<NewPost />} />
+
               <Route path="*" element={<NoMatch />} />
             </Routes>
           </div>

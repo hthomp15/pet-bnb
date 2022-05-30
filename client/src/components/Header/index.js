@@ -24,6 +24,7 @@ function Header() {
         </div>
         <nav className="header-content-right">
             <Link to="/about"> About Us</Link>
+
             {Auth.loggedIn() ? (
             <>
               <Link to={`/profile/${user}`}>Me</Link>
