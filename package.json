@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "apollo-client": "^2.6.10",
+    "buildpack": "^0.0.1",
     "mongoose": "^6.3.5"
   }
 }
