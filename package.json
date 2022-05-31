@@ -24,6 +24,7 @@
     "concurrently": "^7.2.1"
   },
   "dependencies": {
-    "apollo-client": "^2.6.10"
+    "apollo-client": "^2.6.10",
+    "mongoose": "^6.3.5"
   }
 }
