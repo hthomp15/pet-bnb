@@ -49,7 +49,7 @@ mutation Mutation($input: PostInput!) {
 `;
 
 export const ADD_POSTS = gql`
-mutation Mutation($input: PostInput!) {
+mutation Mutation($input: String!) {
   addPost(input: $input) {
     _id
     postText

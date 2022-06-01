@@ -91,7 +91,7 @@ const typeDefs = gql`
         deletePet(_id: ID!): Pet
         updatePet(_id: String!, input: PetInput!): Pet
 
-        addPost(input: PostInput!): Post
+        addPost(input: String!): Post
         deletePost(_id: ID!): Post
         updatePost(_id: String!, input: PostInput!): Post
         addComment(postId: ID!, commentText: String!): Post

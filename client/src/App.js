@@ -18,7 +18,7 @@ import NewPost from './pages/NewPost';
 // import Navbar from './components/Nav';
 
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  uri: 'graphql',
 });
 
 const client = new ApolloClient({
