@@ -8,12 +8,6 @@ function Header() {
     Auth.logout();
   };
 
-  const profile = Auth.getProfile().data.username
-  const [user, setUser] = useState("");
-  useEffect(() => {
-    setUser(profile);
-  }, [profile]);
-
   return (
     <header className="header">
       <div className="header-content">
@@ -27,10 +21,10 @@ function Header() {
 
             {Auth.loggedIn() ? (
             <>
-              <Link to={`/profile/${user}`}>Me</Link>
-              {/* <a href="/" onClick={logout}>
+              <Link to={`/profile/`}>Me</Link>
+              <a href="/" onClick={logout}>
                 Logout
-              </a> */}
+              </a>
             </>
           ) : (
             <>
