@@ -1,4 +1,5 @@
 const express = require('express')
+const mongoose = require('mongoose')
 const path = require('path')
 const db = require('./config/connection')
 const { ApolloServer } = require('apollo-server-express')
@@ -37,5 +38,6 @@ const startApolloServer = async (typeDefs, resolvers) => {
         })
     })
 }
+
 
 startApolloServer(typeDefs, resolvers)

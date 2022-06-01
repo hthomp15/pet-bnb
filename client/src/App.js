@@ -13,11 +13,12 @@ import NoMatch from './pages/NoMatch';
 import SinglePost from './pages/SinglePost';
 import Profile from './pages/Profile';
 import Signup from './pages/SignUp';
+import NewPost from './pages/NewPost';
 
 // import Navbar from './components/Nav';
 
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  uri: 'graphql',
 });
 
 const client = new ApolloClient({
@@ -39,6 +40,7 @@ function App() {
               <Route path="/signup" element={<Signup />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/post/:id" element={<SinglePost />} />
+              <Route path="/newPosts" element={<NewPost />} ></Route>
               <Route path="*" element={<NoMatch />} />
             </Routes>
           </div>
