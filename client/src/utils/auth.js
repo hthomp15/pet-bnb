@@ -1,5 +1,5 @@
 import decode from 'jwt-decode';
-import axios from 'axios';
+
 
 class AuthService {
   getProfile() {
