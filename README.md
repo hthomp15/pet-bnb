@@ -1,6 +1,6 @@
-# Petbnb v2.0 :unicorn::martial_arts_uniform:
+# PetBnb v2.0 :unicorn::martial_arts_uniform:
 
-#### We are a platform dedicated to connecting pet sitters and pet owners together!
+#### We are a platform dedicated to connecting pet sitters and pet owners together! PetBnb's mission is to make traveling easy. Let's face it...kennels can be a terrible place for your pets and trying to find a sitter can be challenging especially for long trips. PetBnb allows you to get connected with people in your local area willing to watch your pets right at home.
 
 ### To use this Application
 
