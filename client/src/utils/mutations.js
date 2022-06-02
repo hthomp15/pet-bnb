@@ -53,7 +53,7 @@ mutation Mutation($input: PostInput!) {
   addPost(input: $input) {
     _id
     postText
-    commentCount
+    dateNeeded
     createdAt
     username
   }
