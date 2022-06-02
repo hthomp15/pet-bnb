@@ -1,9 +1,9 @@
-import { useState, useEffect }from 'react';
-import Auth from '../../utils/auth';
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import Auth from "../../utils/auth";
+import { Link } from "react-router-dom";
 
 function Header() {
-  const logout = event => {
+  const logout = (event) => {
     event.preventDefault();
     Auth.logout();
   };
@@ -12,14 +12,14 @@ function Header() {
     <header className="header">
       <div className="header-content">
         <div className="header-content-left">
-            <Link to="/">
-                <h1>PetBnB</h1>
-            </Link>
+          <Link to="/">
+            <h1>PetBnB</h1>
+          </Link>
         </div>
         <nav className="header-content-right">
-            <Link to="/about"> About Us</Link>
+          <Link to="/about"> About Us</Link>
 
-            {Auth.loggedIn() ? (
+          {Auth.loggedIn() ? (
             <>
               <Link to={`/profile/`}>Me</Link>
               <a href="/" onClick={logout}>
@@ -32,14 +32,13 @@ function Header() {
               <Link to="/signup">Signup</Link>
             </>
           )}
-            {Auth.loggedIn() ? (
-              <>
+          {Auth.loggedIn() ? (
+            <>
               <Link to="/newpost"> New Post </Link>
-              </>
-              ) : (
-                <>
-                </>
-                )}
+            </>
+          ) : (
+            <></>
+          )}
         </nav>
       </div>
     </header>
