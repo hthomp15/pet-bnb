@@ -80,10 +80,10 @@ const resolvers = {
         },
         addPet: async (parent, args, context) => {
 
-            console.log(context.user)
+            // console.log(context.user)
 
             if (context.user) {
-                console.log('HELLOOOOO')
+                // console.log('HELLOOOOO')
                 const pet = await Pet.create({ ...args.input, username: context.user.username })
                 await User.findByIdAndUpdate(
                     { _id: context.user._id },
@@ -105,8 +105,8 @@ const resolvers = {
             return pet
         },
         addPost: async (parent, args, context) => {
-
-            console.log(context.user)
+            console.log("inside addPost resolver")
+            // console.log(context.user)
 
             if (context.user) {
                 const post = await Post.create({ ...args.input, username: context.user.username })
@@ -131,8 +131,8 @@ const resolvers = {
             return post
         },
         addComment: async (parent, args, context) => {
-            console.log(context.user)
-            console.log(context.user.username, 'HELLLOOOOO')
+            // console.log(context.user)
+            // console.log(context.user.username, 'HELLLOOOOO')
 
             if (context.user) {
 

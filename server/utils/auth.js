@@ -27,7 +27,7 @@ module.exports = {
         // if no token, return request object as is
         if (!token) {
             // console.log('NO TOKEN!')
-            console.log(req)
+            // console.log(req)
             return req
         }
 

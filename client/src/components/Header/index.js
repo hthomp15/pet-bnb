@@ -32,7 +32,14 @@ function Header() {
               <Link to="/signup">Signup</Link>
             </>
           )}
-            <Link to="/newpost"> New Post </Link>
+            {Auth.loggedIn() ? (
+              <>
+              <Link to="/newpost"> New Post </Link>
+              </>
+              ) : (
+                <>
+                </>
+                )}
         </nav>
       </div>
     </header>

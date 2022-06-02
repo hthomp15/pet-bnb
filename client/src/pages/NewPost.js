@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { ADD_POSTS} from '../utils/mutations';
 import { useMutation } from '@apollo/client';
-import Auth from '../utils/auth';
 
 
 const NewPost = () => {

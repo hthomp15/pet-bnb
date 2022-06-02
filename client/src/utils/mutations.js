@@ -48,6 +48,17 @@ mutation Mutation($input: PostInput!) {
 }
 `;
 
+// export const ADD_POSTS = gql`
+// mutation Mutation($input: PostInput!) {
+//   addPost(input: $input) {
+//     _id
+//     postText
+//     dateNeeded
+//     createdAt
+//     username
+//   }
+// }
+// `
 export const ADD_POSTS = gql`
 mutation Mutation($input: PostInput!) {
   addPost(input: $input) {
@@ -58,5 +69,4 @@ mutation Mutation($input: PostInput!) {
     username
   }
 }
-`
-
+`;
