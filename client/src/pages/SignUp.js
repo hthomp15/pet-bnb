@@ -38,11 +38,10 @@ const SignUp = () => {
     };
 
     return (
-        <main className='flex-row justify-center'>
-            <div className='col-12 col-md-6'>
-                <div className='card'>
-                    <h4 className='card-header'>Sign Up:</h4>
-                    <div className='card-body'>
+        <main className='signup-main-container'>
+                <div className='signup-form'>
+                    <h4 className='signup-header'>Sign Up:</h4>
+                    <div className='signup-body'>
                         <form onSubmit={handleFormSubmit}>
                             <input
                                 className='form-input'
@@ -80,14 +79,13 @@ const SignUp = () => {
                                 value={formState.phone}
                                 onChange={handleChange}
                             />
-                            <button className='' type='submit'>
+                            <button className='signup-button' type='submit'>
                                 Submit
                             </button>
                         </form>
-                        {error && <div>Sign up failed</div>}
+                        {error && <div className='signup-fail'>Error: Sign up failed</div>}
                     </div>
                 </div>
-            </div>
         </main>
     );
 }

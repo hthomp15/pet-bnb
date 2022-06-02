@@ -16,10 +16,10 @@ function Posts ( { posts, title } ) {
                         <Link to={`/profile/${post.username}`}>
                             <h3 className="username">{post.username}</h3>
                         </Link>{' '}
+                        <p className="date">{post.dateNeeded}</p>
                     </div>
                     <div className="description">
-                        <Link to={`/post/${post._id}`}>
-                            <p className="date">{post.dateNeeded}</p>
+                        <Link  className="post-content" to={`/post/${post._id}`}>
                             <p className="post-text">{post.postText}</p>
                             <p className="comments">Comments: {post.commentCount} Click to {''} 
                             {post.commentCount ? 'see' : 'start '} the discussion</p>

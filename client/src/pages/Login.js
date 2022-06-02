@@ -41,14 +41,13 @@ const Login = (props) => {
     };
   
     return (
-      <main className='flex-row justify-center'>
-        <div className='col-12 col-md-6'>
-          <div className='card'>
-            <h4 className='card-header'>Log In</h4>
-            <div className='card-body'>
+      <main className='login-main-container'>
+          <div className='login-form'>
+            <h4 className='login-header'>Log In</h4>
+            <div className='login-body'>
               <form onSubmit={handleFormSubmit}>
                 <input
-                  className='form-input'
+                  className='login-input'
                   placeholder='Your email'
                   name='email'
                   type='email'
@@ -57,7 +56,7 @@ const Login = (props) => {
                   onChange={handleChange}
                 />
                 <input
-                  className='form-input'
+                  className='login-input'
                   placeholder='******'
                   name='password'
                   type='password'
@@ -65,14 +64,13 @@ const Login = (props) => {
                   value={formState.password}
                   onChange={handleChange}
                 />
-                <button className='btn d-block w-100' type='submit'>
+                <button className='login-button' type='submit'>
                   Submit
                 </button>
               </form>
-              {error && <div>Login failed</div>}
+              {error && <div className="login-fail">Login failed. Please try again.</div>}
             </div>
           </div>
-        </div>
       </main>
     );
 };
